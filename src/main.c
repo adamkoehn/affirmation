@@ -15,7 +15,7 @@ extern char *optarg;
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #else
-#define PACKAGE_STRING "miscompiled constant-affirmation wihtout a version (you did it wrong)"
+#define PACKAGE_STRING "miscompiled constant-affirmation without a version (you did it wrong)"
 #endif
 
 int run;

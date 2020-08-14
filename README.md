@@ -1,7 +1,7 @@
 # Affirmation
 
-Affirmation is a completely uneccissary program written as part of the
-Uneccissary Program project. It will attempt to run as a daemon by default,
+Affirmation is a completely unnecessary program written as part of the
+Unnecessary Program project. It will attempt to run as a daemon by default,
 and provide a libnotify notification telling you that you are doing a great
 job at a regular interval. However, if you have any ideas for features or any
 bug reports, feel free to contribute.
@@ -25,7 +25,7 @@ make
 sudo make install
 ```
 
-## Roadmap
+## Road Map
 
 I have a few ideas for new changes that may or may not include the following.
 
