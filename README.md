@@ -29,7 +29,7 @@ sudo make install
 
 I have a few ideas for new changes that may or may not include the following.
 
-1. Configuration file for affirmations
-2. Web service to download affirmations
+1. Web service to download affirmations
+2. Proper autotools distribution instead of requiring autoreconf
 
 If you have any ideas feel free to contribute.
