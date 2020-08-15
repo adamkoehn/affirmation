@@ -8,23 +8,29 @@
 #include <sys/stat.h>
 #include <libnotify/notify.h>
 
+#include "notification.h"
+
 #ifndef optarg
 extern char *optarg;
 #endif
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
-#else
-#define PACKAGE_STRING "miscompiled constant-affirmation without a version (you did it wrong)"
 #endif
 
 int run;
 
-static void main_send_notification()
+static void main_send_notification(int total)
 {
+    char summary[4069];
+    char body[4096];
     GError *error = NULL;
-    NotifyNotification *notification = notify_notification_new("You're doing a great job!", "Keep up the good work! What you're doing is fantastic! Good job!", 0);
-    notify_notification_show(notification, &error);
+
+    if (notification_random(total, summary, body))
+    {
+        NotifyNotification *notification = notify_notification_new(summary, body, NULL);
+        notify_notification_show(notification, &error);
+    }
 }
 
 static void main_sig_shutdown(int signo)
@@ -47,10 +53,11 @@ static void main_loop(int seconds)
         sigaction(SIGTERM, &new_sig, NULL);
 
     run = 1;
+    int total = notification_total();
     notify_init("Constant Affirmation");
     while (run)
     {
-        main_send_notification();
+        main_send_notification(total);
         sleep(seconds);
     }
     notify_uninit();
@@ -85,12 +92,15 @@ static void main_run_as_daemon(int seconds)
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
     main_loop(seconds);
-    exit(0);
 }
 
 static void main_show_version()
 {
+    #ifdef PACKAGE_STRING
     printf("%s\n", PACKAGE_STRING);
+    #else
+    printf("miscompiled constant-affirmation without a version (you did it wrong)\n");
+    #endif
     exit(0);
 }
 

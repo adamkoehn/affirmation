@@ -22,6 +22,7 @@ AC_TYPE_PID_T
 AC_FUNC_FORK
 
 AC_CONFIG_FILES([Makefile
-                 src/Makefile])
+                 src/Makefile
+                 etc/Makefile])
 AM_INIT_AUTOMAKE
 AC_OUTPUT

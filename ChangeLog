@@ -3,3 +3,11 @@
     Create program that is completely uneccissary
 
     * wrote initial program and build tooling
+
+
+
+2020-08-15  Adam Koehn  <adamkoehn1@gmail.com>
+
+    Added configuration file for affirmations
+
+    * Added affirmation file that can be modified to include more affirmations
